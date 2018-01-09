@@ -1,0 +1,30 @@
+DDL语句，数据定义语句：
+这些语句定义了不同的数据段，数据库，表，列，索引等数据库对象的定义。常用的语句关键字主要包括create， drop， alter，等。
+1. 创建数据库：
+mysql -uroot -p
+create databases test1;
+show databases;
+use test1;
+show tables;
+2. 删除数据库：
+drop databases test1;
+3.创建表：
+create table emmp(
+  ename varchar(20) not null,
+  hiredate date not null,
+  salary decimal(10,2),
+  deptno int(2)
+);
+
+4. 删除表：
+drop table emmp;
+5.修改表：
+alter table emmp modify ename varchar(20);
+alter table emmp add age int(2) after ename;
+ alter table emp add birth date after ename;
+alter table emp drop column age;
+alter table emp modify age int(3) first;
+字段改名：
+alter table emp change age age1 int(4) ;
+表改名：alter table emmp rename emp;
+
