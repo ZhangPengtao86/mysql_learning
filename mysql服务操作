@@ -1,0 +1,24 @@
+ 重启MySQL服务：
+  systemctl restart mariadb.service 
+ 停止MySQL服务：
+  systemctl stop mariadb.service 
+关掉MySQL服务：
+  mysqladmin -u root shutdown
+启动MySQL服务：
+  systemctl start mariadb.service 
+查看MySQL状态：
+[root@skl-s html]# systemctl status mariadb.service 
+\u25cf mariadb.service - MariaDB database server
+   Loaded: loaded (/usr/lib/systemd/system/mariadb.service; disabled; vendor preset: disabled)
+   Active: active (running) since Tue 2018-01-09 12:01:00 CST; 5min ago
+  Process: 18753 ExecStartPost=/usr/libexec/mariadb-wait-ready $MAINPID (code=exited, status=0/SUCCESS)
+  Process: 18724 ExecStartPre=/usr/libexec/mariadb-prepare-db-dir %n (code=exited, status=0/SUCCESS)
+ Main PID: 18752 (mysqld_safe)
+   CGroup: /system.slice/mariadb.service
+           \u251c\u250018752 /bin/sh /usr/bin/mysqld_safe --basedir=/usr
+           \u2514\u250018909 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --plugin-dir=/usr/lib64/mysql/plugin --log-error=/var/log/mariadb/mariadb.log --pid-file=/var/run/mariadb/mariadb.pid --socket=/v...
+
+Jan 09 12:00:58 skl-s systemd[1]: Starting MariaDB database server...
+Jan 09 12:00:58 skl-s mysqld_safe[18752]: 180109 12:00:58 mysqld_safe Logging to '/var/log/mariadb/mariadb.log'.
+Jan 09 12:00:58 skl-s mysqld_safe[18752]: 180109 12:00:58 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
+Jan 09 12:01:00 skl-s systemd[1]: Started MariaDB database server.
